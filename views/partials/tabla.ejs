@@ -1,0 +1,27 @@
+
+<!-- historial table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- if no product -->
+        <% if (product.length === 1) { %>
+            <tr>
+                <td colspan="3">No hay productos</td>
+            </tr>
+        <% }else{ %>
+        
+        <% for (let i = 1; i < product.length; i++) { %>
+            <tr>
+                <td><%=product[i].title%></td>
+                <td><%=product[i].price%></td>
+                <td><img src=<%=product[i].image%> alt=""></td>
+            </tr>
+        <% } } %>
+    </tbody>
+</table>
