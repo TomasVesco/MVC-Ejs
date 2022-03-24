@@ -9,8 +9,15 @@
   "name": "mvc---ejs",
   "version": "1.0.0",
   "main": "clase.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/TomasVesco/MVC-Ejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TomasVesco/MVC-Ejs/issues"
+  },
+  "homepage": "https://github.com/TomasVesco/MVC-Ejs#readme",
   "description": ""
 }
