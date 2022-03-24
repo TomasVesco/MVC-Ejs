@@ -10,13 +10,13 @@
     </thead>
     <tbody>
         <!-- if no product -->
-        <% if (product.length === 1) { %>
+        <% if (product[0].id == 0) { %>
             <tr>
                 <td colspan="3">No hay productos</td>
             </tr>
         <% }else{ %>
         
-        <% for (let i = 1; i < product.length; i++) { %>
+        <% for (let i = 0; i < product.length; i++) { %>
             <tr>
                 <td><%=product[i].title%></td>
                 <td><%=product[i].price%></td>

@@ -10,41 +10,26 @@ app.set('view engine', 'ejs');
 
 const p = new Contenedor( './productos.txt' );
 
-app.get('/productos', (req, res) => {
-    p.getAll()
-    .then( product => {
-        res.render('form', { product });
-    })
+app.get('/productos', async (req, res) => {
+    const product = await p.getAll();
+    res.render('form', { product } );
 });
 
-app.post('/productos', (req, res) => {
-    p.getAll()
-    .then( product => {
-        if(product[0].id == 0){
-            const {title, price, image} = req.body;
-            const newProduct = {
-                title: title,
-                price: price,
-                image: image,
-                id: 1
-            }
-            p.save(newProduct);
-        } else {
-            const {title, price, image} = req.body;
-            const newProduct = {
-                title: title,
-                price: price,
-                image: image
-            }
-            p.save(newProduct);
-        }
-        res.render('form', { product });
-    })
-    
-    p.getAll()
-    .then( product => {
-        res.render('form', { product });
-    })
+app.post('/productos', async (req, res) => {
+    let product = await p.getAll();
+
+    const { title, price, image } = req.body;
+
+    const newProduct = {
+        title: title,
+        price: price,
+        image: image
+    }
+
+    await p.save(newProduct);
+
+    product = await p.getAll();
+    res.render('form', { product });  
 });
 
 app.listen(8080);
